@@ -2,23 +2,37 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
     min-height: 100vh;
-    background: linear-gradient(45deg, #1a1a1a, #2c3e50);
+    background: linear-gradient(135deg, #1a1a1a, #2c3e50, #3498db);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .container {
     background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 15px;
+    padding: 30px;
+    border-radius: 20px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2),
+                0 5px 10px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
 }
 
 .clock {
@@ -26,15 +40,38 @@ body {
 }
 
 .time {
-    font-size: 4rem;
-    font-weight: 600;
+    font-size: 5rem;
+    font-weight: 300;
     color: #ffffff;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
 }
 
 .date {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #ecf0f1;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+#formatToggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#formatToggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
 } 
